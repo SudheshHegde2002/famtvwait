@@ -1,38 +1,140 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 40px;
   pointer-events: none;
+  margin-right: 15px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    /* animation: App-logo-spin infinite 20s linear; */
   }
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  padding: 15px 20px;
+  color: white;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.App-main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
+}
+
+.App-main h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.App-download {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App-download p {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.App-download a {
+  text-decoration: none;
+}
+
+.download-button {
+  background-color: #4CAF50;
   color: white;
+  border: none;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.download-button:hover {
+  background-color: #45a049;
 }
 
+/* Remove the keyframes animation */
 @keyframes App-logo-spin {
-  from {
+  /* from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  } */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .App-main h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .App-download p {
+    font-size: 1.1rem;
+  }
+  
+  .download-button {
+    padding: 10px 25px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-logo {
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+  .App-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .App-main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .App-download p {
+    font-size: 1rem;
+  }
+  
+  .download-button {
+    padding: 8px 20px;
+    font-size: 1rem;
   }
 }
