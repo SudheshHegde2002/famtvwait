@@ -1,25 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import { LanguageProvider } from './contexts/LanguageContext';
+import Header from './components/Header';
+import MainContent from './components/MainContent';
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Check on initial load
+    checkIfMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="header-content">
-          <img src={`${process.env.PUBLIC_URL}/logo.png`} className="App-logo" alt="FarmTVStore logo" />
-          <h1>FarmTVStore</h1>
-        </div>
-      </header>
-      <main className="App-main">
-        <h2>Under construction, Please wait</h2>
-        <div className="App-download">
-          <p>New to farm tv? Click here to download the App</p>
-          <a href="https://farmtv.shramajeevi.com/" target="_blank" rel="noopener noreferrer">
-            <button className="download-button">Download</button>
-          </a>
-        </div>
-      </main>
-    </div>
+    <LanguageProvider>
+      <div className="App">
+        <Header isMobile={isMobile} />
+        <MainContent isMobile={isMobile} />
+      </div>
+    </LanguageProvider>
   );
 }
 
